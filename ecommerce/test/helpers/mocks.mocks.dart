@@ -15,6 +15,8 @@ import 'package:ecommerce/features/data/datasource/remote_data_source.dart'
 import 'package:ecommerce/features/data/models/product_model.dart' as _i3;
 import 'package:ecommerce/features/domain/entities/productentity.dart' as _i7;
 import 'package:ecommerce/features/domain/repository/repositories.dart' as _i4;
+import 'package:internet_connection_checker/internet_connection_checker.dart'
+    as _i11;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -42,6 +44,16 @@ class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
 
 class _FakeProductModel_1 extends _i1.SmartFake implements _i3.ProductModel {
   _FakeProductModel_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeDuration_2 extends _i1.SmartFake implements Duration {
+  _FakeDuration_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -286,4 +298,44 @@ class MockNetworkInfo extends _i1.Mock implements _i10.NetworkInfo {
         Invocation.getter(#isconnected),
         returnValue: _i5.Future<bool>.value(false),
       ) as _i5.Future<bool>);
+}
+
+/// A class which mocks [InternetConnectionChecker].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockInternetConnectionChecker extends _i1.Mock
+    implements _i11.InternetConnectionChecker {
+  MockInternetConnectionChecker() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  Duration get checkInterval => (super.noSuchMethod(
+        Invocation.getter(#checkInterval),
+        returnValue: _FakeDuration_2(
+          this,
+          Invocation.getter(#checkInterval),
+        ),
+      ) as Duration);
+
+  @override
+  _i5.Future<bool> get hasConnection => (super.noSuchMethod(
+        Invocation.getter(#hasConnection),
+        returnValue: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
+
+  @override
+  _i5.Future<_i11.InternetConnectionStatus> get connectionStatus =>
+      (super.noSuchMethod(
+        Invocation.getter(#connectionStatus),
+        returnValue: _i5.Future<_i11.InternetConnectionStatus>.value(
+            _i11.InternetConnectionStatus.connected),
+      ) as _i5.Future<_i11.InternetConnectionStatus>);
+
+  @override
+  _i5.Stream<_i11.InternetConnectionStatus> get onStatusChange =>
+      (super.noSuchMethod(
+        Invocation.getter(#onStatusChange),
+        returnValue: _i5.Stream<_i11.InternetConnectionStatus>.empty(),
+      ) as _i5.Stream<_i11.InternetConnectionStatus>);
 }
