@@ -58,4 +58,20 @@ void main() {
           throwsA(const TypeMatcher<ServerException>()));
     });
   });
+
+  group('for delete product', () {
+    test('should perform a delete request', () async {
+      when(mockClient.delete(any, headers: anyNamed('headers'))).thenAnswer(
+          (_) async => http.Response(fixture('delete_respose.json'), 200));
+			await remoteDataSource.deleteProduct("6672776eb905525c145fe0bb");
+			verify(mockClient.delete(Uri.parse("https://g5-flutter-learning-path-be.onrender.com/api/v1/products/6672776eb905525c145fe0bb")));
+    });
+
+    test('should throw a server exception', () async {
+      when(mockClient.delete(any, headers: anyNamed('headers'))).thenAnswer(
+          (_) async => http.Response('something went wrong', 404));
+			final call = remoteDataSource.deleteProduct;
+			expect(() => call("6672776eb905525c145fe0bb"), throwsA(TypeMatcher<ServerException>()));
+    });
+  });
 }
