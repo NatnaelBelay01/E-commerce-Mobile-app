@@ -61,7 +61,7 @@ class MyDetailsPage extends StatelessWidget {
           height: 260,
           child: Padding(padding: EdgeInsets.all(10), child: Textareawidget()),
         ),
-        BottomButtons(),
+        Padding(padding: EdgeInsets.all(8), child: BottomButtons()),
       ],
     )));
   }

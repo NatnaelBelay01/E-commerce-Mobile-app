@@ -25,7 +25,7 @@ class BottomButtons extends StatelessWidget {
                     child: Text(
                   'DELETE',
                   style: TextStyle(
-                    fontSize: 21,
+                    fontSize: 14,
                     color: Color(0xC9FF1313),
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
@@ -43,7 +43,7 @@ class BottomButtons extends StatelessWidget {
                     child: Text(
                   'UPDATE',
                   style: TextStyle(
-                    fontSize: 21,
+                    fontSize: 14,
                     color: Colors.white,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
