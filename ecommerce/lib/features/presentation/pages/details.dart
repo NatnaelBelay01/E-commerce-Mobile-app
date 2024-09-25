@@ -1,4 +1,3 @@
-import 'package:ecommerce/features/data/datasource/local_data_source.dart';
 import 'package:ecommerce/features/presentation/widgets/detailbottombuttonswidget.dart';
 import 'package:ecommerce/features/presentation/widgets/productdetialview.dart';
 import 'package:ecommerce/features/presentation/widgets/productnamepriceview.dart';
