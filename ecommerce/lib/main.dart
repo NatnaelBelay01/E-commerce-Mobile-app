@@ -1,8 +1,9 @@
-import 'package:ecommerce/features/presentation/pages/addpage.dart';
-import 'package:ecommerce/features/presentation/pages/details.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/features/presentation/pages/home.dart';
+import 'injection_container.dart' as di;
 
-void main() {
-  runApp(AddPage());
+void main() async {
+	WidgetsFlutterBinding.ensureInitialized();
+	await di.init();
+  runApp(Home());
 }

@@ -89,7 +89,7 @@ class ProductRemoteDataSourceImp implements ProductRemoteDataSource {
 
   @override
   Future<List<ProductModel>> viewAll() async {
-    final respose = await client.get(Uri.parse('https://g5-flutter-learning-path-be.onrender.com/api/v2/products/'), headers: {'Content-Type' : 'application/json'});
+    final respose = await client.get(Uri.parse('https://g5-flutter-learning-path-be.onrender.com/api/v1/products'), headers: {'Content-Type' : 'application/json'});
 		if (respose.statusCode == 200){
 			var result = json.decode(respose.body)["data"];
 			List<ProductModel> productList = result.map<ProductModel>((item) => ProductModel.fromJson(item)).toList();

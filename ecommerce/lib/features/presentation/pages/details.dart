@@ -1,3 +1,4 @@
+import 'package:ecommerce/features/domain/entities/productentity.dart';
 import 'package:ecommerce/features/presentation/widgets/detailbottombuttonswidget.dart';
 import 'package:ecommerce/features/presentation/widgets/productdetialview.dart';
 import 'package:ecommerce/features/presentation/widgets/productnamepriceview.dart';
@@ -6,31 +7,19 @@ import 'package:ecommerce/features/presentation/widgets/textareawidget.dart';
 import 'package:flutter/material.dart';
 import '../widgets/productimagewidget.dart';
 
-class Details extends StatelessWidget {
-  const Details({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter demo',
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true),
-      home: MyDetailsPage(),
-    );
-  }
-}
 
 class MyDetailsPage extends StatelessWidget {
+	final Product product;
+	MyDetailsPage({required this.product});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
             child: Column(
       children: [
-        productImageWidget(),
-        Productdetailview(),
-        productNamePriceView(),
+        ProductImageWidget(imageurl: product.imageUrl),
+        Productdetailview(description: product.description),
+        ProductNamePriceView(name: product.name, price: product.price,),
         Align(
           alignment: Alignment.topLeft,
           child: Text('Size:',
@@ -58,7 +47,7 @@ class MyDetailsPage extends StatelessWidget {
         Container(
           width: 366,
           height: 260,
-          child: Padding(padding: EdgeInsets.all(10), child: Textareawidget()),
+          child: Padding(padding: EdgeInsets.all(10), child: Textareawidget(description: product.description)),
         ),
         Padding(padding: EdgeInsets.all(8), child: BottomButtons()),
       ],

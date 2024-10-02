@@ -10,7 +10,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Container(
           width: 50,
           height: 50,
-          child: Placeholder(),
+          child: Icon(
+            Icons.account_box_rounded,
+            size: 50,
+            color: Color(0xFFD9D9D9),
+          ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(11),
           ),
@@ -22,7 +26,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Align(
                 alignment: Alignment.centerLeft,
-                child: Container(width: 69, height: 14, child: Placeholder())),
+                child: Container(
+                  width: 69,
+                  height: 14,
+                  child: Text('July 14, 2024', style: TextStyle(fontSize: 12)),
+                )),
             SizedBox(
               height: 5,
             ),
@@ -30,8 +38,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               alignment: Alignment.centerLeft,
               child: Container(
                 width: 122,
-                height: 14,
-                child: Placeholder(),
+                height: 16,
+                child: Text('Hello User', style: TextStyle(fontSize: 15)),
               ),
             ),
           ],
@@ -43,9 +51,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Container(
             width: 40,
             height: 40,
-            child: Placeholder(),
+            child: Icon(
+              Icons.notifications,
+              size: 40,
+              color: Color(0xFF666666),
+            ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(9),
+              border: Border.all(
+                width: 1,
+                color: Color(0xFF666666),
+              ),
             ),
           ),
         )

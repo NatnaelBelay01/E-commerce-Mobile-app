@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-class productImageWidget extends StatelessWidget {
+class ProductImageWidget extends StatelessWidget {
+  final String imageurl;
+
+  ProductImageWidget({required this.imageurl});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -9,8 +13,8 @@ class productImageWidget extends StatelessWidget {
       child: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset(
-              'images/b.jpeg',
+            child: Image.network(
+              imageurl,
               fit: BoxFit.cover,
             ),
           ),
@@ -18,7 +22,9 @@ class productImageWidget extends StatelessWidget {
             top: 16,
             left: 16,
             child: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               mini: true,
               backgroundColor: Colors.white,
               foregroundColor: Colors.black,

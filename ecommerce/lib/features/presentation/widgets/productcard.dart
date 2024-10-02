@@ -1,22 +1,34 @@
+import 'package:ecommerce/features/domain/entities/productentity.dart';
+import 'package:ecommerce/features/presentation/pages/details.dart';
 import 'package:flutter/material.dart';
 
 class Productcard extends StatelessWidget {
+	final Product product;
+	Productcard({required this.product});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyDetailsPage(product: product,),
+          ),
+        );
+      },
       child: Card(
         clipBehavior: Clip.antiAlias,
         child: Column(
           children: [
-            Image.asset('images/b.jpeg'),
+            Image.network(product.imageUrl),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Abebe', style: const TextStyle(fontSize: 24)),
-                  Text('\$400'),
+                  Text(product.name, style: const TextStyle(fontSize: 24)),
+                  Text('\$${product.price}'),
                 ],
               ),
             ),

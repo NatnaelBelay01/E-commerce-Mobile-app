@@ -1,11 +1,8 @@
 import 'package:ecommerce/features/presentation/widgets/addpageappbar.dart';
-import 'package:ecommerce/features/presentation/widgets/catagorytextfield.dart';
 import 'package:ecommerce/features/presentation/widgets/descriptiontextfield.dart';
-import 'package:ecommerce/features/presentation/widgets/nametextfield.dart';
-import 'package:ecommerce/features/presentation/widgets/pricetextfield.dart';
+import 'package:ecommerce/features/presentation/widgets/smalltextfield.dart';
 import 'package:ecommerce/features/presentation/widgets/uploadimagewidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
@@ -27,13 +24,14 @@ class MyAddPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: AddPageAppBar(),
-      body: Column(
+      appBar: PageAppBar(name: 'Add Product'),
+      body: SingleChildScrollView(
+          child: Column(
         children: [
           Uploadimagewidget(),
-          NameTextField(),
-          CatagoryTextField(),
-          PriceTextField(),
+          SmallTextField(name: 'name'),
+          SmallTextField(name: 'catagory'),
+          SmallTextField(name: 'price'),
           DescriptionTextField(),
           Container(
             width: 366,
@@ -42,15 +40,16 @@ class MyAddPage extends StatelessWidget {
                 color: Color(0xFF3F51F3),
                 borderRadius: BorderRadius.circular(8)),
             child: Center(
-                child: Text(
-              'Add',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontFamily: 'Poppins',
-                fontSize: 14,
+              child: Text(
+                'Add',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Poppins',
+                  fontSize: 14,
+                ),
               ),
-            )),
+            ),
           ),
           Padding(
               padding: EdgeInsets.all(8),
@@ -72,7 +71,7 @@ class MyAddPage extends StatelessWidget {
                 )),
               ))
         ],
-      ),
+      )),
     );
   }
 }

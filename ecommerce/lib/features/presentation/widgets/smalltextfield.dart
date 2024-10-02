@@ -1,7 +1,11 @@
 
 import 'package:flutter/material.dart';
 
-class CatagoryTextField extends StatelessWidget {
+class SmallTextField extends StatelessWidget {
+	final String name;
+
+	SmallTextField({required this.name});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,7 +15,7 @@ class CatagoryTextField extends StatelessWidget {
           Align(
               alignment: Alignment.topLeft,
               child: Text(
-                'catagory',
+                name,
                 style: TextStyle(
                     fontSize: 14,
                     fontFamily: 'Poppins',

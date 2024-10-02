@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
-class productNamePriceView extends StatelessWidget {
+class ProductNamePriceView extends StatelessWidget {
+	final String name;
+	final double price;
+	ProductNamePriceView({required this.name, required this.price});
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("Derby Leather",
+        Text(name,
             style: TextStyle(
                 fontFamily: 'Poppins',
                 fontSize: 36,
                 fontWeight: FontWeight.w600,
                 color: Color(0xFF3E3E3E))),
         Text(
-          "\$120",
+          "\$$price",
           style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 24,

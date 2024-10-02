@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Productdetailview extends StatelessWidget {
+  final String description;
+  Productdetailview({required this.description});
   @override
   Widget build(BuildContext context) {
     return Row(
