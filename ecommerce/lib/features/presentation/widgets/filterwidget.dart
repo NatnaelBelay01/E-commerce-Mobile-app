@@ -12,7 +12,7 @@ class FilterWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SmallTextField(name: 'catagory'),
+            SmallTextField(name: 'catagory', controller: TextEditingController(),),
             Text('price'),
             RangeSlider(
               values: const RangeValues(20, 80),

@@ -1,4 +1,7 @@
+import 'package:ecommerce/features/presentation/bloc/product_bloc.dart';
+import 'package:ecommerce/features/presentation/bloc/product_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductImageWidget extends StatelessWidget {
   final String imageurl;
@@ -23,7 +26,7 @@ class ProductImageWidget extends StatelessWidget {
             left: 16,
             child: FloatingActionButton(
               onPressed: () {
-                Navigator.pop(context);
+    						context.read<ProductBloc>().add(LoadAllProductEvent());
               },
               mini: true,
               backgroundColor: Colors.white,

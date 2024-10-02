@@ -72,10 +72,10 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       final result = await createProductUseCase(event.product);
       result.fold((failure) => emit(ErrorState('Error creating Product')),
           (product) async {
-        final viewresult = await viewProductUseCase(product.id);
+        final viewresult = await viewAllProductUseCase();
         viewresult.fold(
           (fail) => emit(ErrorState('Error loading product')),
-          (prod) => emit(LoadedSingleProductState(prod)),
+          (prod) => emit(LoadedAllProductState(prod)),
         );
       });
     });

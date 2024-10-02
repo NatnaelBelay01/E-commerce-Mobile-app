@@ -5,24 +5,27 @@ import 'package:flutter/material.dart';
 
 class Scrollablewidget extends StatelessWidget {
   final List<Product> products;
-  Scrollablewidget({required this.products});
+  const Scrollablewidget({super.key, required this.products});
 
   List<Widget> buildcards() {
-    return products
+    List<Widget> res = products
         .map(
           (product) => Productcard(
             product: product,
           ),
         )
         .toList();
+		return res;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Container(
-          width: 230,
+			backgroundColor: Colors.white,
+			elevation: 0,
+        title: const SizedBox(
+          width: 250,
           height: 26,
           child: Text(
             'Available Products',
@@ -35,26 +38,25 @@ class Scrollablewidget extends StatelessWidget {
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 5),
+            padding: const EdgeInsets.only(right: 5),
             child: Container(
               height: 40,
               width: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Color(0xFFD9D9D9), width: 1),
+                border: Border.all(color: const Color(0xFFD9D9D9), width: 1),
               ),
               child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => MySearchPage()));
-                  },
-                  child: Icon(
-                    Icons.search,
-                    size: 40,
-                    color: Color(0xFFD9D9D9),
-                  )),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MySearchPage()));
+                },
+                child: const Icon(
+                  Icons.search,
+                  size: 40,
+                  color: Color(0xFFD9D9D9),
+                ),
+              ),
             ),
           )
         ],

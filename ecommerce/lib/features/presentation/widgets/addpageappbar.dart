@@ -1,4 +1,8 @@
+import 'package:ecommerce/features/presentation/bloc/product_bloc.dart';
+import 'package:ecommerce/features/presentation/bloc/product_event.dart';
+import 'package:ecommerce/features/presentation/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PageAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String name;
@@ -8,13 +12,14 @@ class PageAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back_ios_new_rounded,
-            color: Color(0xFF3F51F3),
-          )),
+        onTap: () {
+				Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
+        },
+        child: Icon(
+          Icons.arrow_back_ios_new_rounded,
+          color: Color(0xFF3F51F3),
+        ),
+      ),
       title: Row(
         children: [
           SizedBox(

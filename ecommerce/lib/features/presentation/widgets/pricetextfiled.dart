@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
 
-class SmallTextField extends StatelessWidget {
-  final String name;
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+class PriceTextField extends StatelessWidget {
   final TextEditingController controller;
 
-  const SmallTextField({super.key, required this.name, required this.controller});
+  const PriceTextField({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class SmallTextField extends StatelessWidget {
           Align(
             alignment: Alignment.topLeft,
             child: Text(
-              name,
+              'price',
               style: const TextStyle(
                   fontSize: 14,
                   fontFamily: 'Poppins',
@@ -30,6 +31,8 @@ class SmallTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
             ),
             child: TextField(
+							keyboardType: TextInputType.number,
+							inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
               controller: controller,
               maxLines: 1,
               decoration: InputDecoration(

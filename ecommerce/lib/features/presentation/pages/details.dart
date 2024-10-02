@@ -10,7 +10,7 @@ import '../widgets/productimagewidget.dart';
 
 class MyDetailsPage extends StatelessWidget {
 	final Product product;
-	MyDetailsPage({required this.product});
+	const MyDetailsPage({super.key, required this.product});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class MyDetailsPage extends StatelessWidget {
         ProductImageWidget(imageurl: product.imageUrl),
         Productdetailview(description: product.description),
         ProductNamePriceView(name: product.name, price: product.price,),
-        Align(
+        const Align(
           alignment: Alignment.topLeft,
           child: Text('Size:',
               style: TextStyle(
@@ -44,13 +44,13 @@ class MyDetailsPage extends StatelessWidget {
             Sizebuttonwidget(),
           ]),
         ),
-        Container(
+        SizedBox(
           width: 366,
           height: 260,
-          child: Padding(padding: EdgeInsets.all(10), child: Textareawidget(description: product.description)),
+          child: Padding(padding: const EdgeInsets.all(10), child: Textareawidget(description: product.description)),
         ),
-        Padding(padding: EdgeInsets.all(8), child: BottomButtons()),
+        Padding(padding: const EdgeInsets.all(8), child: BottomButtons()),
       ],
-    )));
+    ),),);
   }
 }
