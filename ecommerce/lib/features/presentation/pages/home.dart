@@ -53,9 +53,7 @@ class _MyHomePage extends State<MyHomePage> {
               return Scrollablewidget(products: state.result);
             } else if (state is ErrorState) {
               return Center(child: Text(state.errormessage));
-            } else if(state is LoadedSingleProductState){
-							return MyDetailsPage(product: state.result);
-						}
+            }
             return Container();
           },
         ),

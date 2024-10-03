@@ -13,7 +13,7 @@ class PageAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: GestureDetector(
         onTap: () {
-				Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
+				Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
         },
         child: Icon(
           Icons.arrow_back_ios_new_rounded,

@@ -8,30 +8,36 @@ class ProductNamePriceView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-			mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-          width: 300,
-          child: Text(
-            name,
-            style: const TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 36,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF3E3E3E),
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            width: 274,
+            child: Text(
+              name,
+              style: const TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 36,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF3E3E3E),
+              ),
             ),
           ),
-        ),
-        Container(width: 100, child: Text(
-          "\$$price",
-          style: const TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF3E3E3E)),
-        ) ),
-      ],
+          SizedBox(
+            width: 84,
+            child: Text(
+              "\$$price",
+              style: const TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF3E3E3E)),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

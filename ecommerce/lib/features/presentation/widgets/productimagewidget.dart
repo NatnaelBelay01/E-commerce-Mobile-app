@@ -27,6 +27,7 @@ class ProductImageWidget extends StatelessWidget {
             child: FloatingActionButton(
               onPressed: () {
     						context.read<ProductBloc>().add(LoadAllProductEvent());
+								Navigator.pop(context);
               },
               mini: true,
               backgroundColor: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:ecommerce/features/domain/entities/productentity.dart';
 import 'package:ecommerce/features/presentation/bloc/product_bloc.dart';
 import 'package:ecommerce/features/presentation/bloc/product_event.dart';
+import 'package:ecommerce/features/presentation/pages/details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,7 +13,14 @@ class Productcard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.read<ProductBloc>().add(GetSingleProductEvent(product.id));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyDetailsPage(
+              product: product,
+            ),
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.all(10),

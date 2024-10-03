@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ecommerce/features/domain/usecase/createproduct.dart';
 import 'package:ecommerce/features/domain/usecase/deleteproduct.dart';
 import 'package:ecommerce/features/domain/usecase/updateproduct.dart';
@@ -44,40 +44,26 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       final result = await updateProductUseCase(event.product);
       result.fold(
         (failure) => emit(ErrorState('Error updating product')),
-        (product) async {
-          final viewresult = await viewProductUseCase(product.id);
-          viewresult.fold(
-            (fail) => emit(ErrorState('Error loading product')),
-            (prod) => emit(LoadedSingleProductState(prod)),
-          );
-        },
+        (product) => emit(ProductUpdatedState(product)),
       );
     });
 
     on<DeleteProductEvent>((event, emit) async {
       emit(LoadingState());
       final result = await deleteProductUseCase(event.productId);
-      result.fold((failure) => emit(ErrorState('Error deleting product')),
-          (_) async {
-        final viewresults = await viewAllProductUseCase();
-        viewresults.fold(
-          (failure) => emit(ErrorState('Error loading products')),
-          (products) => emit(LoadedAllProductState(products)),
-        );
-      });
+      result.fold(
+        (failure) => emit(ErrorState('Error deleting product')),
+        (success) => emit(ProductDeletedState()),
+      );
     });
 
     on<CreateProductEvent>((event, emit) async {
       emit(LoadingState());
       final result = await createProductUseCase(event.product);
-      result.fold((failure) => emit(ErrorState('Error creating Product')),
-          (product) async {
-        final viewresult = await viewAllProductUseCase();
-        viewresult.fold(
-          (fail) => emit(ErrorState('Error loading product')),
-          (prod) => emit(LoadedAllProductState(prod)),
-        );
-      });
+      result.fold(
+        (failure) => emit(ErrorState('Error creating Product')),
+        (product) => emit(ProductCreatedState(product)),
+      );
     });
   }
 }

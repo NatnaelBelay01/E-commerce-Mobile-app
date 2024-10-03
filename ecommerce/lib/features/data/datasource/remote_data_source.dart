@@ -78,7 +78,7 @@ class ProductRemoteDataSourceImp implements ProductRemoteDataSource {
     });
     final response = await client.put(
         Uri.parse(
-            'https://g5-flutter-learning-path-be.onrender.com/api/v2/products/${product.id}'),
+            'https://g5-flutter-learning-path-be.onrender.com/api/v1/products/${product.id}'),
         body: jsonBody);
     if (response.statusCode == 200) {
       return ProductModel.fromJson(json.decode(response.body)["data"]);
