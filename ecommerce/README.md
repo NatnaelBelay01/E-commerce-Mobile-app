@@ -35,3 +35,18 @@ Future Development
 ## Conclusion
 This project is a work in progress, adhering to Clean Architecture principles to ensure a well-organized and maintainable codebase. As the project grows, additional layers and components will be implemented and tested, continuing to follow the architecture’s best practices.
 
+
+
+
+# Home Page
+![image1](images/home.jpg)
+
+# Description Page
+![image2](images/des.jpg)
+
+# Search Page
+![images3](images/sea.jpg)
+
+# Add/Update Page
+![image4](images/add.jpg)
+
