@@ -19,7 +19,7 @@ The Data Layer is responsible for managing data sources, whether they are from a
 
 ### ProductModel:
 This is the data model that represents the product entity within the data layer. It is responsible for converting raw data into domain entities and vice versa.
-## 3. Presentation Layer (To Be Developed)
+## 3. Presentation Layer 
 The Presentation Layer will handle the UI and user interaction aspects of the application. This layer will interact with the domain layer through use cases, ensuring that the presentation logic remains separate from business rules.
 
 ## Testing
@@ -32,10 +32,6 @@ Tests for the ProductModel, verifying that it correctly handles data transformat
 ### Mocks and Stubs:
 Mockito has been used to create mocks and stubs, enabling the testing of interactions between different layers without relying on actual data sources.
 Future Development
-## To Be Implemented:
-### Presentation Layer: The UI components that will interact with the domain layer.
-### Full Data Layer Implementation: Integration with actual data sources, such as APIs or databases.
-### Comprehensive Testing: Expanding tests to cover edge cases and ensure robustness.
 ## Conclusion
 This project is a work in progress, adhering to Clean Architecture principles to ensure a well-organized and maintainable codebase. As the project grows, additional layers and components will be implemented and tested, continuing to follow the architecture’s best practices.
 
